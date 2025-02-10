@@ -36,7 +36,7 @@ _usage ()
     exit ${1}
 }
 
-sed s/Required DatabaseOptional/Optional/ -i /etc/pacman.conf
+sed "s/Required DatabaseOptional/Optional/" -i /etc/pacman.conf
 Sed "s/#ParallelDownloads/ParallelDownloads 5/" -i /etc/pacman.conf
 
 # Helper function to run make_*() only one time per architecture.
