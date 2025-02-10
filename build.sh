@@ -36,7 +36,11 @@ _usage ()
     exit ${1}
 }
 
-sed "s/Required DatabaseOptional/Optional/" -i /etc/pacman.conf
+curl -s https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc \
+    | pacman-key --add -
+pacman-key --lsign-key 56C464BAAC421453
+
+sed "s/Required DatabaseOptional/TrustAll/" -i /etc/pacman.conf
 sed "s/#ParallelDownloads/ParallelDownloads 5/" -i /etc/pacman.conf
 
 # Helper function to run make_*() only one time per architecture.

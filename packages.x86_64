@@ -51,6 +51,8 @@ libfido2
 libusb-compat
 linux-surface
 linux-surface-headers
+chaotic-keyring
+chaotic-mirrorlist
 linux-atm
 linux-firmware
 livecd-sounds
