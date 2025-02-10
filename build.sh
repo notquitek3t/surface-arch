@@ -39,9 +39,16 @@ _usage ()
 curl -s https://raw.githubusercontent.com/linux-surface/linux-surface/master/pkg/keys/surface.asc \
     | pacman-key --add -
 pacman-key --lsign-key 56C464BAAC421453
+pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+pacman-key --lsign-key 3056513887B78AEB
+
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
 sed "s/Required DatabaseOptional/TrustAll/" -i /etc/pacman.conf
 sed "s/#ParallelDownloads/ParallelDownloads 5/" -i /etc/pacman.conf
+
+cat /etc/pacman.conf
 
 # Helper function to run make_*() only one time per architecture.
 run_once() {
