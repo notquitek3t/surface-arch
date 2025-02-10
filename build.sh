@@ -42,11 +42,11 @@ pacman-key --lsign-key 56C464BAAC421453
 pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 pacman-key --lsign-key 3056513887B78AEB
 
-#pacman -U 'https://cf-builds.garudalinux.org/repos/chaotic-aur/chaotic-keyring.pkg.tar.zst'
+pacman -U 'http://cf-builds.garudalinux.org/repos/chaotic-aur/chaotic-keyring.pkg.tar.zst'
 #pacman -U 'https://cf-builds.garudalinux.org/repos/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
 sed "s/Required DatabaseOptional/TrustAll/" -i /etc/pacman.conf
-sed "s/#ParallelDownloads/ParallelDownloads 5/" -i /etc/pacman.conf
+echo "ParallelDownloads 55" >> /etc/pacman.conf
 
 cat /etc/pacman.conf
 
