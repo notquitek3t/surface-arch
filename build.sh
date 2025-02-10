@@ -46,7 +46,7 @@ pacman-key --lsign-key 3056513887B78AEB
 #pacman -U 'https://cf-builds.garudalinux.org/repos/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 
 sed "s/Required DatabaseOptional/Never/" -i /etc/pacman.conf
-echo "ParallelDownloads 55" >> /etc/pacman.conf
+echo "ParallelDownloads = 55" >> /etc/pacman.conf
 
 cat /etc/pacman.conf
 
